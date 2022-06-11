@@ -1,0 +1,2 @@
+COMANDO: pip install pyvis (interface gráfica)
+Faça o comando dentro da pasta do projeto "SalaoIA"

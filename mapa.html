@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salao</title>
+</head>
+
+<body>
+    <script>
+        let whirok = "['Whiterun', 'Rockstead']";
+        let whiriv = "['Whiterun', 'Riverwood']";
+        let whiiva = "['Whiterun', 'Ivarsted']";
+        let whiivarif = "['Whiterun', 'Ivarsted', 'Riften']";
+        let whiivasho = "['Whiterun', 'Ivarsted', 'Shorstone']";
+        let whirivfal = "['Whiterun', 'Riverwood', 'Falkreath']";
+        let whirivhel = "['Whiterun', 'Riverwood', 'Helgen']";
+        let whirokdra = "['Whiterun', 'Rockstead', 'Dragon Bridge']";
+        let whirokkar = "['Whiterun', 'Rockstead', 'Kartvasten']";
+        let whirokdrasol = "['Whiterun', 'Rockstead', 'Dragon Bridge', 'Solitude']";
+        let whirokkarmar = "['Whiterun', 'Rockstead', 'Kartvasten', 'Markarth']";
+        let whishorif = "['Whiterun', 'Shorstone', 'Riften']";
+
+        async function loadFile(file) {
+            let text = await (new Response(file)).text();
+            console.log(text);
+            
+            if (text == whirok) {
+               document.getElementById("whi-rok").style.display = "block";
+            }
+            if (text == whiriv) {
+               document.getElementById("whi-riv").style.display = "block";
+            }
+            if (text == whiiva) {
+               document.getElementById("whi-iva").style.display = "block";
+            }
+            if (text == whiivarif) {
+               document.getElementById("whi-iva-rif").style.display = "block";
+            }
+            if (text == whiivasho) {
+               document.getElementById("whi-iva-sho").style.display = "block";
+            }
+            if (text == whirivfal) {
+               document.getElementById("whi-riv-fal").style.display = "block";
+            }
+            if (text == whirivhel) {
+               document.getElementById("whi-riv-hel").style.display = "block";
+            }
+            if (text == whirokdra) {
+               document.getElementById("whi-rok-dra").style.display = "block";
+            }
+            if (text == whirokkar) {
+               document.getElementById("whi-rok-kar").style.display = "block";
+            }
+            if (text == whirokdrasol) {
+               document.getElementById("whi-rok-dra-sol").style.display = "block";
+            }
+            if (text == whirokkarmar) {
+               document.getElementById("whi-rok-kar-mar").style.display = "block";
+            }
+            if (text == whishorif) {
+               document.getElementById("whi-sho-rif").style.display = "block";
+            }
+            
+            
+        }
+    </script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-y: hidden;
+            overflow-x: hidden;
+            background-color: #02254b;
+        }
+        
+        .container-filter {
+            background: #fffddd;
+            border: 2px dashed black;
+            width: 20%;
+        }
+        
+        .container-options {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        
+        .mark-falkreath,
+        .mark-markarth,
+        .mark-riften,
+        .mark-solitude,
+        .mark-dragon-bridge,
+        .mark-kartvasten,
+        .mark-rockstead,
+        .mark-riverwood,
+        .mark-helgen,
+        .mark-ivarsted,
+        .mark-shorstone,
+        .img-mark {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        
+        .all {
+            display: flex;
+            flex-direction: row;
+        }
+        
+        .h1-title {
+            text-align: center;
+        }
+        /*MARKER*/
+        
+        .img-map {
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .container-img {
+            position: relative;
+            width: 80%;
+            height: auto;
+        }
+        
+        .mark-start {
+            position: absolute;
+            top: 52%;
+            left: 40%;
+            width: 50px;
+            height: 50px;
+        }
+        
+        .mark-falkreath {
+            top: 78%;
+            left: 32%;
+        }
+        
+        .mark-markarth {
+            top: 48%;
+            left: 9%;
+        }
+        
+        
+        .mark-riften {
+            top: 82%;
+            left: 65%;
+        }
+        
+        .mark-solitude {
+            top: 16%;
+            left: 27%;
+        }
+        
+        .mark-dragon-bridge {
+            top: 22%;
+            left: 20%;
+        }
+        
+        .mark-kartvasten {
+            top: 38%;
+            left: 15%;
+        }
+        
+        .mark-rockstead {
+            top: 47%;
+            left: 23%;
+        }
+        
+        .mark-riverwood {
+            top: 64%;
+            left: 41%;
+        }
+        
+        .mark-helgen {
+            top: 76%;
+            left: 40%;
+        }
+        
+        .mark-ivarsted {
+            top: 70%;
+            left: 49%;
+        }
+        
+        .mark-shorstone {
+            top: 70%;
+            left: 63%;
+        }
+        
+        .route {
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+        
+        .container-route {
+            position: absolute;
+            width: 80%;
+            height: auto;
+        }
+        /*ROUTES*/
+        
+        #whi-rok,
+        #whi-riv,
+        #whi-iva,
+        #whi-iva-rif,
+        #whi-iva-sho,
+        #whi-riv-fal,
+        #whi-riv-hel,
+        #whi-rok-dra,
+        #whi-rok-kar,
+        #whi-rok-dra-sol,
+        #whi-rok-kar-mar,
+        #whi-sho-rif
+         {
+            display: none;
+        }
+        .h1-city{
+            color: white;
+            text-shadow: 1px 1px 2px black;
+            padding-top: 20px;
+        }
+    </style>
+    <div class="all">
+
+
+        <div class="container-img">
+            <img class='img-map' src='img/mapskyrim.png' />
+        </div>
+        <div class="container-filter">
+            <input type="file" onchange="loadFile(this.files[0])">
+            <form action="mapa.html">
+                <input type="submit" value="RESET" />
+            </form>
+        </div>
+
+
+
+
+        <div class="container-route">
+            <img id="whi-rok" class="route" src="img/routes/whiterun/whi-rok.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-riv" class="route" src="img/routes/whiterun/whi-riv.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-iva" class="route" src="img/routes/whiterun/whi-iva.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-iva-rif" class="route" src="img/routes/whiterun/whi-iva-rif.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-iva-sho" class="route" src="img/routes/whiterun/whi-iva-sho.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-riv-fal" class="route" src="img/routes/whiterun/whi-riv-fal.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-riv-hel" class="route" src="img/routes/whiterun/whi-riv-hel.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-rok-dra" class="route" src="img/routes/whiterun/whi-rok-dra.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-rok-kar" class="route" src="img/routes/whiterun/whi-rok-kar.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-rok-dra-sol" class="route" src="img/routes/whiterun/whi-rok-dra-sol.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-rok-kar-mar" class="route" src="img/routes/whiterun/whi-rok-kar-mar.png" alt="">
+        </div>
+
+        <div class="container-route">
+            <img id="whi-sho-rif" class="route" src="img/routes/whiterun/whi-sho-rif.png" alt="">
+        </div>
+       
+
+        <div class="mark-start">
+            <img class='img-mark' src="img/inicio.png" alt="Whiterun">
+            <h1 class="h1-city">Whiterun</h1>
+        </div>
+
+        <div class="mark-falkreath">
+            <img class='img-mark' src="img/interesse.png" alt="">
+             <h1 class="h1-city">Falkreath</h1>
+        </div>
+        <div class="mark-markarth">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Markarth</h1>
+        </div>
+        <div class="mark-riften">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Riften</h1>
+        </div>
+        <div class="mark-solitude">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Solitude</h1>
+        </div>
+        <div class="mark-dragon-bridge">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Dragon Bridge</h1>
+        </div>
+        <div class="mark-kartvasten">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Kartvasten</h1>
+        </div>
+        <div class="mark-rockstead">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Rockstead</h1>
+        </div>
+        <div class="mark-riverwood">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Riverwood</h1>
+        </div>
+        <div class="mark-helgen">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Helgen</h1>
+        </div>
+        <div class="mark-ivarsted">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Ivasted</h1>
+        </div>
+        <div class="mark-shorstone">
+            <img class='img-mark' src="img/interesse.png" alt="">
+            <h1 class="h1-city">Shorstone</h1>
+        </div>
+    </div>
+</body>
+
+</html>
